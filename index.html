@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>JJ Galloway — Artist &amp; Educator</title>
+<meta name="description" content="Portfolio of JJ Galloway — oil painting, illustration, drawing, and 3D work." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <a class="wordmark" href="#top">JJ Galloway</a>
+    <nav class="site-nav">
+      <a href="#about">About</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="resume/jj-galloway-resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
+    </nav>
+  </header>
+
+  <main id="top">
+
+    <section class="hero">
+      <h1>Oil painting, illustration,<br />and narrative drawing.</h1>
+      <p class="hero-sub">Based in Durango, Colorado — usually on a mountain, sometimes at a desk.</p>
+    </section>
+
+    <section id="about" class="about">
+      <div class="about-photo">
+        <img src="images/about-photo.jpg" alt="Portrait of JJ Galloway" loading="lazy" />
+      </div>
+      <div class="about-text">
+        <h2>About</h2>
+        <div id="bio"></div>
+        <a class="resume-link" href="resume/jj-galloway-resume.pdf" target="_blank" rel="noopener noreferrer">View Résumé (PDF)</a>
+        <ul class="tags" id="tags"></ul>
+      </div>
+    </section>
+
+    <section id="portfolio" class="portfolio">
+      <h2>Portfolio</h2>
+      <nav class="category-jump" id="category-jump"></nav>
+      <div id="portfolio-sections"></div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <span>&copy; <span id="year"></span> JJ Galloway</span>
+    <a href="mailto:jjgalloway24@gmail.com">jjgalloway24@gmail.com</a>
+  </footer>
+
+  <div class="lightbox" id="lightbox" hidden>
+    <button class="lightbox-close" id="lightbox-close" aria-label="Close">&times;</button>
+    <button class="lightbox-nav lightbox-prev" id="lightbox-prev" aria-label="Previous">&lsaquo;</button>
+    <button class="lightbox-nav lightbox-next" id="lightbox-next" aria-label="Next">&rsaquo;</button>
+    <div class="lightbox-content" id="lightbox-content"></div>
+    <div class="lightbox-caption">
+      <h3 id="lightbox-title"></h3>
+      <span id="lightbox-tag"></span>
+    </div>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
