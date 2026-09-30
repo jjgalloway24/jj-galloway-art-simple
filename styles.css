@@ -81,6 +81,7 @@ a {
 .hero {
   padding: 72px max(24px, 5vw) 48px;
   max-width: 980px;
+  margin: 0 auto;
 }
 
 .hero h1 {
@@ -105,6 +106,7 @@ a {
   gap: 48px;
   padding: 24px max(24px, 5vw) 72px;
   max-width: 980px;
+  margin: 0 auto;
   scroll-margin-top: 24px;
   border-top: 1px solid var(--line);
   padding-top: 56px;
@@ -173,7 +175,8 @@ a {
 /* Portfolio */
 .portfolio {
   padding: 24px max(24px, 5vw) 96px;
-  max-width: 1200px;
+  max-width: 1440px;
+  margin: 0 auto;
   border-top: 1px solid var(--line);
   padding-top: 56px;
   scroll-margin-top: 24px;
