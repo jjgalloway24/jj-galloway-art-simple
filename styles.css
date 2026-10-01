@@ -46,9 +46,9 @@ a {
 }
 
 .wordmark {
-  font-family: var(--serif);
+  font-family: "Fraunces", var(--serif);
   font-weight: 600;
-  font-style: italic;
+  font-style: normal;
   font-size: 1.5rem;
   color: var(--accent);
   text-decoration: none;
