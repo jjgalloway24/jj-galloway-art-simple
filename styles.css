@@ -252,6 +252,16 @@ a {
   transition: transform 0.35s ease;
 }
 
+/* Tall pages and wide spreads share one grid, so show each whole */
+.grid-contain .grid-thumb {
+  background: #fff;
+  border: 1px solid var(--line);
+}
+
+.grid-contain .grid-thumb img {
+  object-fit: contain;
+}
+
 .grid-item:hover .grid-thumb img,
 .grid-item:hover .grid-thumb video {
   transform: scale(1.035);

@@ -42,7 +42,7 @@ CATEGORIES.forEach((cat) => {
   section.appendChild(heading);
 
   const grid = document.createElement("div");
-  grid.className = "grid";
+  grid.className = cat.fit === "contain" ? "grid grid-contain" : "grid";
 
   projects.forEach((project) => {
     const index = renderedProjects.length;
