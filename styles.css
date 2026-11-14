@@ -252,10 +252,11 @@ a {
   transition: transform 0.35s ease;
 }
 
-/* Tall pages and wide spreads share one grid, so show each whole */
+/* Tall pages and wide spreads share one grid, so show each whole. The
+   drawings are transparent PNGs cropped to the sketchbook, so they sit
+   straight on the page with no mat or border. */
 .grid-contain .grid-thumb {
-  background: #fff;
-  border: 1px solid var(--line);
+  background: none;
 }
 
 .grid-contain .grid-thumb img {

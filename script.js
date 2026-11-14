@@ -57,7 +57,8 @@ CATEGORIES.forEach((cat) => {
 
     if (project.image) {
       const img = document.createElement("img");
-      img.src = project.image;
+      // Grid tiles use a small thumb when one exists; the lightbox loads the full image
+      img.src = project.thumb || project.image;
       img.alt = project.title;
       img.loading = "lazy";
       img.decoding = "async";
