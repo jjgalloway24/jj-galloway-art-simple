@@ -99,6 +99,20 @@ a {
   max-width: 46ch;
 }
 
+/* Hero image: the lead piece, shown whole, opens in the lightbox */
+.hero-image {
+  margin-top: 40px;
+  cursor: pointer;
+}
+
+.hero-image img {
+  width: 100%;
+  height: auto;
+  max-height: 78vh;
+  object-fit: contain;
+  object-position: left top;
+}
+
 /* About */
 .about {
   display: grid;
@@ -231,6 +245,23 @@ a {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: 28px 20px;
+}
+
+/* Curated sections hold three across so the rows stay even */
+.grid-cols-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+@media (max-width: 700px) {
+  .grid-cols-3 {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  }
+}
+
+.category-blurb {
+  margin: -12px 0 24px;
+  font-size: 0.95rem;
+  color: var(--ink-soft);
 }
 
 .grid-item {
@@ -375,6 +406,18 @@ a {
 .lightbox-caption span {
   font-size: 0.82rem;
   color: #b8b6ae;
+}
+
+.lightbox-detail {
+  margin: 8px auto 0;
+  max-width: 60ch;
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: #b8b6ae;
+}
+
+.lightbox-detail[hidden] {
+  display: none;
 }
 
 .lightbox-close {

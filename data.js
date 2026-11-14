@@ -1,88 +1,40 @@
 // Content for the site. Kept as one plain data file (no build step,
-// no framework) — this whole site is intentionally just static
+// no framework). This whole site is intentionally just static
 // HTML/CSS/JS.
+//
+// Sections render in the order listed in CATEGORIES, and the pieces inside
+// each section render in the order listed in PROJECTS.
+//
+// Grid tiles load a small copy from images/thumbs/ (same file name as the
+// full image); the lightbox loads the full image. Optional per-piece
+// `detail` shows a caption line in the lightbox, e.g.
+//   detail: "Oil on panel, 9 x 12 in, 2025. Painted on the summit of Engineer Mountain."
 
 const CATEGORIES = [
-  { id: "oil", label: "Oil Painting" },
-  { id: "illustration", label: "Illustration" },
-  { id: "drawings", label: "Drawings" },
+  { id: "illustration", label: "Illustration", columns: 3 },
+  {
+    id: "stick-death-drop",
+    label: "Stick: Death Drop",
+    blurb: "A parkour graphic novel about four boys.",
+  },
+  { id: "oil", label: "Oil Painting", columns: 3 },
   // fit: "contain" shows each drawing whole in its tile instead of cropping it
-  { id: "sketchbook", label: "Sketchbook", fit: "contain" },
-  { id: "3d", label: "3D" },
-  { id: "stick-death-drop", label: "Stick: Death Drop" },
+  { id: "sketchbook", label: "Sketchbook", columns: 3, fit: "contain" },
+  { id: "3d", label: "3D", columns: 3 },
 ];
 
-const PROJECTS = [
-  // Oil Painting
-  { title: "Forest Stream", tag: "Oil Painting", category: "oil", image: "images/forest-stream.jpg" },
-  { title: "Rock Pool", tag: "Oil Painting", category: "oil", image: "images/rock-pool.jpg" },
-  { title: "The Garden Monument", tag: "Oil Painting", category: "oil", image: "images/garden-monument.jpg" },
-  { title: "Fallen Log", tag: "Oil Painting", category: "oil", image: "images/fallen-log.jpg" },
-  { title: "Boulder Among Birches", tag: "Oil Painting", category: "oil", image: "images/boulder-among-birches.jpg" },
-  { title: "Snow-Laden Branches", tag: "Oil Painting", category: "oil", image: "images/snow-laden-branches.jpg" },
-  { title: "Blue Vein", tag: "Oil Painting", category: "oil", image: "images/blue-vein.jpg" },
-  { title: "Roots in the Snow", tag: "Oil Painting", category: "oil", image: "images/roots-in-snow.jpg" },
-  { title: "Sunlit Boulder", tag: "Oil Painting", category: "oil", image: "images/sunlit-boulder.jpg" },
-  { title: "Study in Progress", tag: "Oil Painting", category: "oil", image: "images/study-in-progress.jpg" },
-  { title: "Bridge", tag: "Oil Painting", category: "oil", image: "images/bridge.jpg" },
-  { title: "Dungeon Entrance", tag: "Oil Painting", category: "oil", image: "images/dungeon-entrance.jpg" },
-  { title: "Friends", tag: "Oil Painting", category: "oil", image: "images/friends.jpg" },
-  { title: "Moss and Water", tag: "Oil Painting", category: "oil", image: "images/moss-and-water.jpg" },
-  { title: "Now This is Epic", tag: "Oil Painting", category: "oil", image: "images/now-this-is-epic.jpg" },
-  { title: "Paint Bender", tag: "Oil Painting", category: "oil", image: "images/paint-bender.jpg" },
-  { title: "Mine Cart", tag: "Oil Painting", category: "oil", image: "images/rust-in-the-creek.jpg" },
-  { title: "On Top of Sunlight", tag: "Oil Painting", category: "oil", image: "images/shadow-and-snowfield.jpg" },
-  { title: "Portrait", tag: "Oil Painting", category: "oil", image: "images/portrait-with-earbud.jpg" },
-  { title: "Snowdon", tag: "Oil Painting", category: "oil", image: "images/sunlit-peaks.jpg" },
-  { title: "Top of Engineer", tag: "Oil Painting", category: "oil", image: "images/valley-overlook.jpg" },
-  { title: "Cabin Window", tag: "Oil Painting", category: "oil", image: "images/cabin-window.jpg" },
-  { title: "Falls", tag: "Oil Painting", category: "oil", image: "images/rapids.jpg" },
-  { title: "Falls II", tag: "Oil Painting", category: "oil", image: "images/plunge-pool.jpg" },
-  { title: "In Flight", tag: "Oil Painting", category: "oil", image: "images/in-flight.jpg" },
-  { title: "Kitchen", tag: "Oil Painting", category: "oil", image: "images/kitchen-at-night.jpg" },
+// Shown large at the top of the page, above the bio. Clicking it opens the
+// matching piece (by title) in the lightbox.
+const HERO = { title: "Cats and Dogs", src: "images/cats-and-dogs.jpg" };
 
+const PROJECTS = [
   // Illustration
   { title: "Cats and Dogs", tag: "Digital Painting", category: "illustration", image: "images/cats-and-dogs.jpg" },
   { title: "Wind Mage", tag: "Digital Illustration", category: "illustration", image: "images/wind-mage.jpg" },
   { title: "The Butcher's Ritual", tag: "Ink Illustration", category: "illustration", image: "images/butchers-ritual.jpg" },
   { title: "Salvage", tag: "Ink Illustration", category: "illustration", image: "images/salvage.jpg" },
-
-  // Drawings
-  { title: "Cleric", tag: "Character Drawing", category: "drawings", image: "images/cleric.jpg" },
-  { title: "Dungeon Archeologist", tag: "Character Drawing", category: "drawings", image: "images/dungeon-archeologist.jpg" },
-  { title: "Woot Woblin", tag: "Character Drawing", category: "drawings", image: "images/woot-woblin.jpg" },
-  { title: "Merchant", tag: "Character Drawing", category: "drawings", image: "images/merchant.jpg" },
-
-  // Sketchbook (ink and marker, drawn from life)
-  { title: "Climbing Crew", tag: "Sketchbook", category: "sketchbook", image: "images/sketchbook-climbing-crew.png", thumb: "images/thumbs/sketchbook-climbing-crew.png" },
-  { title: "Deer Mount", tag: "Sketchbook", category: "sketchbook", image: "images/sketchbook-deer-mount.png", thumb: "images/thumbs/sketchbook-deer-mount.png" },
-  { title: "Desk Magic", tag: "Sketchbook", category: "sketchbook", image: "images/sketchbook-desk-magic.png", thumb: "images/thumbs/sketchbook-desk-magic.png" },
-  { title: "Christmas in the Dining Hall", tag: "Sketchbook", category: "sketchbook", image: "images/sketchbook-christmas-dining-hall.png", thumb: "images/thumbs/sketchbook-christmas-dining-hall.png" },
-  { title: "Plein Air Painter", tag: "Sketchbook", category: "sketchbook", image: "images/sketchbook-plein-air-painter.png", thumb: "images/thumbs/sketchbook-plein-air-painter.png" },
-  { title: "Dining Hall", tag: "Sketchbook", category: "sketchbook", image: "images/sketchbook-dining-hall.png", thumb: "images/thumbs/sketchbook-dining-hall.png" },
-  { title: "Couch Drawing", tag: "Sketchbook", category: "sketchbook", image: "images/sketchbook-couch-drawing.png", thumb: "images/thumbs/sketchbook-couch-drawing.png" },
-  { title: "Flute Player", tag: "Sketchbook", category: "sketchbook", image: "images/sketchbook-flute-player.png", thumb: "images/thumbs/sketchbook-flute-player.png" },
-  { title: "Seated Figure", tag: "Sketchbook", category: "sketchbook", image: "images/sketchbook-seated-figure.png", thumb: "images/thumbs/sketchbook-seated-figure.png" },
-  { title: "Moose Head", tag: "Sketchbook", category: "sketchbook", image: "images/sketchbook-moose-head.png", thumb: "images/thumbs/sketchbook-moose-head.png" },
-  { title: "On the Bus", tag: "Sketchbook", category: "sketchbook", image: "images/sketchbook-on-the-bus.png", thumb: "images/thumbs/sketchbook-on-the-bus.png" },
-  { title: "Reading", tag: "Sketchbook", category: "sketchbook", image: "images/sketchbook-reading.png", thumb: "images/thumbs/sketchbook-reading.png" },
-  { title: "In the Car", tag: "Sketchbook", category: "sketchbook", image: "images/sketchbook-in-the-car.png", thumb: "images/thumbs/sketchbook-in-the-car.png" },
-  { title: "Plane 1", tag: "Sketchbook", category: "sketchbook", image: "images/sketchbook-plane-1.png", thumb: "images/thumbs/sketchbook-plane-1.png" },
-  { title: "Plane 2", tag: "Sketchbook", category: "sketchbook", image: "images/sketchbook-plane-2.png", thumb: "images/thumbs/sketchbook-plane-2.png" },
-  { title: "Plane Crash", tag: "Sketchbook", category: "sketchbook", image: "images/sketchbook-plane-crash.png", thumb: "images/thumbs/sketchbook-plane-crash.png" },
-  { title: "Plane Neighbor", tag: "Sketchbook", category: "sketchbook", image: "images/sketchbook-plane-neighbor.png", thumb: "images/thumbs/sketchbook-plane-neighbor.png" },
-  { title: "Pottery Studio", tag: "Sketchbook", category: "sketchbook", image: "images/sketchbook-pottery-studio.png", thumb: "images/thumbs/sketchbook-pottery-studio.png" },
-  { title: "Living Room", tag: "Sketchbook", category: "sketchbook", image: "images/sketchbook-living-room.png", thumb: "images/thumbs/sketchbook-living-room.png" },
-  { title: "Skeletons", tag: "Sketchbook", category: "sketchbook", image: "images/sketchbook-skeletons.png", thumb: "images/thumbs/sketchbook-skeletons.png" },
-
-  // 3D
-  { title: "Macintosh", tag: "3D Render", category: "3d", image: "images/macintosh.jpg" },
-  {
-    title: "Field Walker",
-    tag: "3D Render / Video",
-    category: "3d",
-    video: "videos/field-walker-turntable.mp4",
-  },
+  { title: "Merchant", tag: "Character Drawing", category: "illustration", image: "images/merchant.jpg" },
+  { title: "Woot Woblin", tag: "Character Drawing", category: "illustration", image: "images/woot-woblin.jpg" },
 
   // Stick: Death Drop (comic)
   { title: "Page 1", tag: "Stick: Death Drop", category: "stick-death-drop", image: "images/stick-page-01.jpg" },
@@ -96,6 +48,41 @@ const PROJECTS = [
   { title: "Page 9", tag: "Stick: Death Drop", category: "stick-death-drop", image: "images/stick-page-09.jpg" },
   { title: "Page 10", tag: "Stick: Death Drop", category: "stick-death-drop", image: "images/stick-page-10.jpg" },
   { title: "Page 11", tag: "Stick: Death Drop", category: "stick-death-drop", image: "images/stick-page-11.jpg" },
+
+  // Oil Painting (alternates summits, forest, figures, and objects)
+  { title: "The Garden Monument", tag: "Oil Painting", category: "oil", image: "images/garden-monument.jpg" },
+  { title: "Top of Engineer", tag: "Oil Painting", category: "oil", image: "images/valley-overlook.jpg" },
+  { title: "Sunlit Boulder", tag: "Oil Painting", category: "oil", image: "images/sunlit-boulder.jpg" },
+  { title: "Portrait", tag: "Oil Painting", category: "oil", image: "images/portrait-with-earbud.jpg" },
+  { title: "On Top of Sunlight", tag: "Oil Painting", category: "oil", image: "images/shadow-and-snowfield.jpg" },
+  { title: "Rock Pool", tag: "Oil Painting", category: "oil", image: "images/rock-pool.jpg" },
+  { title: "Mine Cart", tag: "Oil Painting", category: "oil", image: "images/rust-in-the-creek.jpg" },
+  { title: "Snowdon", tag: "Oil Painting", category: "oil", image: "images/sunlit-peaks.jpg" },
+  { title: "In Flight", tag: "Oil Painting", category: "oil", image: "images/in-flight.jpg" },
+  { title: "Snow-Laden Branches", tag: "Oil Painting", category: "oil", image: "images/snow-laden-branches.jpg" },
+  { title: "Cabin Window", tag: "Oil Painting", category: "oil", image: "images/cabin-window.jpg" },
+  { title: "Moss and Water", tag: "Oil Painting", category: "oil", image: "images/moss-and-water.jpg" },
+
+  // Sketchbook (ink and marker, drawn from life)
+  { title: "Plane Crash", tag: "Sketchbook", category: "sketchbook", image: "images/sketchbook-plane-crash.png" },
+  { title: "Living Room", tag: "Sketchbook", category: "sketchbook", image: "images/sketchbook-living-room.png" },
+  { title: "Desk Magic", tag: "Sketchbook", category: "sketchbook", image: "images/sketchbook-desk-magic.png" },
+  { title: "Skeletons", tag: "Sketchbook", category: "sketchbook", image: "images/sketchbook-skeletons.png" },
+  { title: "Christmas in the Dining Hall", tag: "Sketchbook", category: "sketchbook", image: "images/sketchbook-christmas-dining-hall.png" },
+  { title: "Climbing Crew", tag: "Sketchbook", category: "sketchbook", image: "images/sketchbook-climbing-crew.png" },
+  { title: "Plane Neighbor", tag: "Sketchbook", category: "sketchbook", image: "images/sketchbook-plane-neighbor.png" },
+  { title: "Seated Figure", tag: "Sketchbook", category: "sketchbook", image: "images/sketchbook-seated-figure.png" },
+  { title: "Flute Player", tag: "Sketchbook", category: "sketchbook", image: "images/sketchbook-flute-player.png" },
+
+  // 3D
+  { title: "Macintosh", tag: "3D Render", category: "3d", image: "images/macintosh.jpg" },
+  {
+    title: "Field Walker",
+    tag: "3D Render / Video",
+    category: "3d",
+    video: "videos/field-walker-turntable.mp4",
+    poster: "images/field-walker-still.jpg",
+  },
 ];
 
 const BIO_PARAGRAPHS = [

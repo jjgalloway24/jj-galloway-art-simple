@@ -24,6 +24,11 @@ const sectionsEl = document.getElementById("portfolio-sections");
 // so it reads as one continuous portfolio browse
 const renderedProjects = [];
 
+// images/foo.jpg -> images/thumbs/foo.jpg (small copies, ~600px wide)
+function thumbFor(src) {
+  return src.replace(/^images\//, "images/thumbs/");
+}
+
 CATEGORIES.forEach((cat) => {
   const projects = PROJECTS.filter((p) => p.category === cat.id);
   if (!projects.length) return;
@@ -41,8 +46,17 @@ CATEGORIES.forEach((cat) => {
   heading.textContent = cat.label;
   section.appendChild(heading);
 
+  if (cat.blurb) {
+    const blurb = document.createElement("p");
+    blurb.className = "category-blurb";
+    blurb.textContent = cat.blurb;
+    section.appendChild(blurb);
+  }
+
   const grid = document.createElement("div");
-  grid.className = cat.fit === "contain" ? "grid grid-contain" : "grid";
+  grid.className = "grid";
+  if (cat.fit === "contain") grid.classList.add("grid-contain");
+  if (cat.columns === 3) grid.classList.add("grid-cols-3");
 
   projects.forEach((project) => {
     const index = renderedProjects.length;
@@ -55,10 +69,12 @@ CATEGORIES.forEach((cat) => {
     const thumb = document.createElement("div");
     thumb.className = "grid-thumb";
 
-    if (project.image) {
+    // Grid tiles load a small copy; the lightbox loads the full image. A video
+    // with a still frame (`poster`) shows that still instead of a black frame.
+    const tileSrc = project.image || project.poster;
+    if (tileSrc) {
       const img = document.createElement("img");
-      // Grid tiles use a small thumb when one exists; the lightbox loads the full image
-      img.src = project.thumb || project.image;
+      img.src = thumbFor(tileSrc);
       img.alt = project.title;
       img.loading = "lazy";
       img.decoding = "async";
@@ -97,6 +113,7 @@ const lightbox = document.getElementById("lightbox");
 const lightboxContent = document.getElementById("lightbox-content");
 const lightboxTitle = document.getElementById("lightbox-title");
 const lightboxTag = document.getElementById("lightbox-tag");
+const lightboxDetail = document.getElementById("lightbox-detail");
 const closeBtn = document.getElementById("lightbox-close");
 const prevBtn = document.getElementById("lightbox-prev");
 const nextBtn = document.getElementById("lightbox-next");
@@ -130,7 +147,7 @@ function renderLightbox() {
   if (project.video) {
     const video = document.createElement("video");
     video.src = project.video;
-    video.poster = project.image || "";
+    video.poster = project.poster || project.image || "";
     video.controls = true;
     video.autoplay = true;
     video.loop = true;
@@ -146,6 +163,8 @@ function renderLightbox() {
 
   lightboxTitle.textContent = project.title;
   lightboxTag.textContent = project.tag;
+  lightboxDetail.textContent = project.detail || "";
+  lightboxDetail.hidden = !project.detail;
 }
 
 closeBtn.addEventListener("click", closeLightbox);
@@ -154,6 +173,20 @@ nextBtn.addEventListener("click", () => step(1));
 lightbox.addEventListener("click", (e) => {
   if (e.target === lightbox) closeLightbox();
 });
+
+// --- Hero image (top of the page, opens the matching piece in the lightbox) ---
+const heroEl = document.getElementById("hero-image");
+const heroIndex = renderedProjects.findIndex((p) => p.title === HERO.title);
+if (heroEl && heroIndex !== -1) {
+  const img = document.createElement("img");
+  img.src = HERO.src;
+  img.alt = HERO.title;
+  img.decoding = "async";
+  heroEl.appendChild(img);
+  heroEl.addEventListener("click", () => openLightbox(heroIndex));
+} else if (heroEl) {
+  heroEl.remove();
+}
 
 document.addEventListener("keydown", (e) => {
   if (lightbox.hidden) return;
