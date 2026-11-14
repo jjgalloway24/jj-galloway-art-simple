@@ -28,12 +28,22 @@ const PROJECTS = [
   { title: "Moss and Water", tag: "Oil Painting", category: "oil", image: "images/moss-and-water.jpg" },
   { title: "Now This is Epic", tag: "Oil Painting", category: "oil", image: "images/now-this-is-epic.jpg" },
   { title: "Paint Bender", tag: "Oil Painting", category: "oil", image: "images/paint-bender.jpg" },
+  { title: "Rust in the Creek", tag: "Oil Painting", category: "oil", image: "images/rust-in-the-creek.jpg" },
+  { title: "Shadow and Snowfield", tag: "Oil Painting", category: "oil", image: "images/shadow-and-snowfield.jpg" },
+  { title: "Portrait with Earbud", tag: "Oil Painting", category: "oil", image: "images/portrait-with-earbud.jpg" },
+  { title: "Sunlit Peaks", tag: "Oil Painting", category: "oil", image: "images/sunlit-peaks.jpg" },
+  { title: "Valley Overlook", tag: "Oil Painting", category: "oil", image: "images/valley-overlook.jpg" },
+  { title: "Cabin Window", tag: "Oil Painting", category: "oil", image: "images/cabin-window.jpg" },
+  { title: "Rapids", tag: "Oil Painting", category: "oil", image: "images/rapids.jpg" },
+  { title: "Plunge Pool", tag: "Oil Painting", category: "oil", image: "images/plunge-pool.jpg" },
 
   // Illustration
   { title: "Cats and Dogs", tag: "Digital Painting", category: "illustration", image: "images/cats-and-dogs.jpg" },
   { title: "Wind Mage", tag: "Digital Illustration", category: "illustration", image: "images/wind-mage.jpg" },
   { title: "The Butcher's Ritual", tag: "Ink Illustration", category: "illustration", image: "images/butchers-ritual.jpg" },
   { title: "Salvage", tag: "Ink Illustration", category: "illustration", image: "images/salvage.jpg" },
+  { title: "In Flight", tag: "Digital Painting", category: "illustration", image: "images/in-flight.jpg" },
+  { title: "Kitchen at Night", tag: "Digital Painting", category: "illustration", image: "images/kitchen-at-night.jpg" },
 
   // Drawings
   { title: "Cleric", tag: "Character Drawing", category: "drawings", image: "images/cleric.jpg" },
