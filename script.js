@@ -15,6 +15,16 @@ TAGS.forEach((tag) => {
   tagsEl.appendChild(li);
 });
 
+// --- Instagram (header nav + footer; hidden until INSTAGRAM_URL is set) ---
+if (INSTAGRAM_URL) {
+  ["nav-instagram", "footer-instagram"].forEach((id) => {
+    const link = document.getElementById(id);
+    if (!link) return;
+    link.href = INSTAGRAM_URL;
+    link.hidden = false;
+  });
+}
+
 // --- Portfolio ---
 const jumpEl = document.getElementById("category-jump");
 const sectionsEl = document.getElementById("portfolio-sections");

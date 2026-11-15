@@ -96,3 +96,7 @@ const BIO_PARAGRAPHS = [
 const TAGS = ["Oil Painting", "Illustration", "Drawing", "Teaching", "Outdoor Guiding"];
 const PHOTO_SRC = "images/about-photo.jpg";
 const RESUME_SRC = "resume/jj-galloway-resume.pdf";
+
+// Your Instagram profile link, e.g. "https://instagram.com/yourhandle".
+// Leave it empty ("") and the Instagram links stay hidden.
+const INSTAGRAM_URL = "";
