@@ -51,14 +51,14 @@ const PROJECTS = [
 
   // Oil Painting (alternates summits, forest, figures, and objects)
   { title: "The Garden Monument", tag: "Oil Painting", category: "oil", image: "images/garden-monument.jpg" },
-  { title: "Top of Engineer", tag: "Oil Painting", category: "oil", image: "images/valley-overlook.jpg" },
+  { title: "Top of Engineer", tag: "Oil Painting · Engineer Mountain, 12,968 ft", category: "oil", image: "images/valley-overlook.jpg" },
   { title: "Sunlit Boulder", tag: "Oil Painting", category: "oil", image: "images/sunlit-boulder.jpg" },
   { title: "Portrait", tag: "Oil Painting", category: "oil", image: "images/portrait-with-earbud.jpg" },
-  { title: "On Top of Sunlight", tag: "Oil Painting", category: "oil", image: "images/shadow-and-snowfield.jpg" },
+  { title: "On Top of Sunlight", tag: "Oil Painting · Sunlight Peak, 14,059 ft", category: "oil", image: "images/shadow-and-snowfield.jpg" },
   { title: "Rock Pool", tag: "Oil Painting", category: "oil", image: "images/rock-pool.jpg" },
   { title: "Mine Cart", tag: "Oil Painting", category: "oil", image: "images/rust-in-the-creek.jpg" },
-  { title: "Snowdon", tag: "Oil Painting", category: "oil", image: "images/sunlit-peaks.jpg" },
-  { title: "In Flight", tag: "Oil Painting", category: "oil", image: "images/in-flight.jpg" },
+  { title: "Snowdon", tag: "Oil Painting · Snowdon Peak, 13,077 ft", category: "oil", image: "images/sunlit-peaks.jpg" },
+  { title: "In Flight", tag: "Digital Painting", category: "oil", image: "images/in-flight.jpg" },
   { title: "Snow-Laden Branches", tag: "Oil Painting", category: "oil", image: "images/snow-laden-branches.jpg" },
   { title: "Cabin Window", tag: "Oil Painting", category: "oil", image: "images/cabin-window.jpg" },
   { title: "Moss and Water", tag: "Oil Painting", category: "oil", image: "images/moss-and-water.jpg" },
